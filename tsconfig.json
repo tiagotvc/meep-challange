@@ -23,6 +23,12 @@
       ],
       "@/services/*": [
         "service/*"
+      ],
+      "@/store/*": [
+        "store/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
       ]
     },
     "skipLibCheck": true,
