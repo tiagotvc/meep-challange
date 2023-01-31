@@ -3,7 +3,7 @@ import { HeadingProps } from ".";
 
 const titleSize = {
   small: (theme: DefaultTheme) => css`
-    font-size: ${theme.font.sizes.medium};
+    font-size: ${theme.font.sizes.xsmall};
   `,
   medium: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.large};
@@ -30,6 +30,8 @@ const titleCase = (uppercase: boolean) => css`
 export const Title = styled.h1<HeadingProps>`
   ${({ theme, colorDark, size, uppercase }) => css`
     color: ${colorDark ? theme.colors.primaryColor : theme.colors.white};
+    margin-block-start: 0 !important;
+    margin-block-end: 0.2em !important;
     ${titleSize[size](theme)};
     ${titleCase(uppercase)};
   `}
