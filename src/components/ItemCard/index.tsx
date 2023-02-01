@@ -1,12 +1,19 @@
+import { CompletePokemon, Pokemon } from "@/store/index";
 import Image from "next/image";
 import React from "react";
+import { CardRarity } from "types/types";
 import CardBody from "./CardBody";
 import CardButton from "./CardButton";
 import CardFooter from "./CardFooter";
 import CardImage from "./CardImage";
 import { Container } from "./styles";
 
-export const ItemCard = ({ rarity, item }) => {
+export interface ItemCardProps {
+  rarity: CardRarity;
+  item: CompletePokemon;
+}
+
+export const ItemCard: React.FC<ItemCardProps> = ({ rarity, item }) => {
   return (
     <Container>
       <CardImage rarity={rarity} item={item} />

@@ -1,6 +1,6 @@
-import Cart from "@/components/Cart";
-import { useState, useMemo, createContext, useContext } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 import { Pokemon } from ".";
+import { isEmpty } from "lodash";
 
 export interface CompletePokemon extends Pokemon {
   description: string;
@@ -20,6 +20,17 @@ const useCartController = () => {
   const addToCart = (pokemon: CompletePokemon) => {
     setCartItens((previous: CompletePokemon[]) => [...previous, pokemon]);
   };
+
+  useEffect(() => {
+    const tempCartItens = JSON.parse(localStorage.getItem("cartItens")) || [];
+    if (!isEmpty(cartItens) || isEmpty(tempCartItens)) return;
+    setCartItens(tempCartItens);
+  }, [cartItens]);
+
+  useEffect(() => {
+    if (isEmpty(cartItens)) return;
+    localStorage.setItem("cartItens", JSON.stringify(cartItens));
+  }, [cartItens]);
 
   return {
     cartItens,

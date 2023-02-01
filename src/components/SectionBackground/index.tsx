@@ -6,7 +6,7 @@ export type SectionBackgroundProps = {
   sectionId?: string;
 };
 
-export const SectionBackground = ({
+export const SectionBackground: React.FC<SectionBackgroundProps> = ({
   children,
   sectionId = "",
 }: SectionBackgroundProps) => {

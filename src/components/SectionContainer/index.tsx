@@ -4,6 +4,8 @@ export type SectionContainerProps = {
   children: React.ReactNode;
 };
 
-export const SectionContainer = ({ children }: SectionContainerProps) => {
+export const SectionContainer: React.FC<SectionContainerProps> = ({
+  children,
+}: SectionContainerProps) => {
   return <Container>{children}</Container>;
 };

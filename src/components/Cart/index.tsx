@@ -1,9 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { SectionBackground } from "../SectionBackground";
-
-import Link from "next/link";
-import { usePokemon } from "@/store/index";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import {
   CartFooter,
   CartHeader,
@@ -16,11 +11,19 @@ import { CompletePokemon, useCart } from "@/store/cart";
 export { getServerSideProps } from "@/store/index";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import CardImage from "../ItemCard/CardImage";
+import NPProgress from "nprogress";
+import { LoggedContext } from "@/store/loggedContext";
 
-export const Cart = ({ cart, toogleCart }) => {
+interface CartProps {
+  cart: boolean;
+  toogleCart: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Cart: React.FC<CartProps> = ({ cart, toogleCart }) => {
   const { cartItens, setCartItens } = useCart();
   const [counter, setCounter] = useState(1);
   const [total, setTotal] = useState(1);
+  const { showSnackbar } = useContext(LoggedContext);
 
   const onChangeQuantity = (e, id: number) => {
     const current = cartItens.filter((item: CompletePokemon) => item.id === id);
@@ -36,6 +39,20 @@ export const Cart = ({ cart, toogleCart }) => {
     cartItens.splice(index);
     setCartItens(cartItens);
     setCounter((previous: number) => previous + 1);
+  };
+
+  const sendRequest = () => {
+    NPProgress.start();
+    setTimeout(() => {
+      NPProgress.done();
+      showSnackbar({
+        message: "Compra Finalizada com sucesso",
+        type: "success",
+      });
+      localStorage.removeItem("cartItens");
+      setCartItens([]);
+      setCounter((previous: number) => previous + 1);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -100,7 +117,9 @@ export const Cart = ({ cart, toogleCart }) => {
           </div>
         </div>
 
-        <button>Finalizar Compra</button>
+        {cartItens.length > 0 && (
+          <button onClick={() => sendRequest()}>Enviar Pedido</button>
+        )}
       </CartFooter>
     </Container>
   );

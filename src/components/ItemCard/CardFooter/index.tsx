@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React from "react";
+import { ItemCardProps } from "..";
 import { CardFooterContainer } from "../styles";
 
-export const CardFooter = ({ rarity, item }) => {
+export const CardFooter: React.FC<ItemCardProps> = ({ rarity, item }) => {
   return (
     <CardFooterContainer rarity={rarity}>
       <div className="info">

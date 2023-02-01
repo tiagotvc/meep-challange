@@ -62,7 +62,7 @@ export const CardBodyContainer = styled.div`
     }
 
     > p {
-      color: ${theme.colors.mediumGray};
+      color: gray;
       font-size: 1.1em;
       line-height: 20px;
       text-align: center;

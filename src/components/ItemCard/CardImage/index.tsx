@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React from "react";
+import { ItemCardProps } from "..";
 import { ContainerImage, ImageBackground } from "../styles";
 
-export const CardImage = ({ rarity, item }) => {
+export const CardImage: React.FC<ItemCardProps> = ({ rarity, item }) => {
   return (
     <ContainerImage rarity={rarity}>
       <ImageBackground>
