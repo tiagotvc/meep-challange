@@ -128,6 +128,11 @@ export const ContainerButton = styled.div<ContainerImageProps>`
       font-size: 0.8em;
       font-weight: bolder;
       transition: opacity 0.3s;
+
+      > a {
+        text-decoration: none;
+        color: white;
+      }
     }
 
     > button:hover {

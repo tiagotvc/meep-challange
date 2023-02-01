@@ -14,8 +14,10 @@ export const Container = styled.div<Background>`
     background: ${theme.colors.white};
     color: ${theme.colors.primaryColor};
     ${background && containerBackgroundActivate(theme)};
-    min-height: 100vh;
     display: flex;
+    height: 100%;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
   `}
 `;

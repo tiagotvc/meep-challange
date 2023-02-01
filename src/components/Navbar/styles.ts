@@ -1,7 +1,11 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.div`
-  ${({ theme }) => css`
+interface NavbarProps {
+  showSearch: boolean;
+}
+
+export const Container = styled.div<NavbarProps>`
+  ${({ showSearch }) => css`
     display: flex;
     position: fixed;
     justify-content: center;
@@ -10,7 +14,7 @@ export const Container = styled.div`
     background: white;
     width: 100%;
     height: 70px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-bottom: 1px solid lightgray;
 
     .cart {
       display: flex;
@@ -30,6 +34,7 @@ export const Container = styled.div`
       border: 1px solid lightgray;
       padding: 10px;
       text-align: center;
+      display: ${showSearch ? "flex" : "none"};
     }
   `}
 `;

@@ -1,3 +1,4 @@
+import { seFontColor } from "@/styles/functions";
 import styled, { css, DefaultTheme } from "styled-components";
 import { HeadingProps } from ".";
 
@@ -28,11 +29,12 @@ const titleCase = (uppercase: boolean) => css`
 `;
 
 export const Title = styled.h1<HeadingProps>`
-  ${({ theme, colorDark, size, uppercase }) => css`
-    color: ${colorDark ? theme.colors.primaryColor : theme.colors.white};
+  ${({ theme, titleColor, size, uppercase }) => css`
+    color: ${titleColor};
     margin-block-start: 0 !important;
     margin-block-end: 0.2em !important;
     ${titleSize[size](theme)};
     ${titleCase(uppercase)};
+    ${seFontColor[titleColor]};
   `}
 `;

@@ -4,22 +4,27 @@ import { Container } from "./styles";
 import { FaShoppingCart } from "react-icons/fa";
 import { useCart } from "@/store/cart";
 import Cart from "../Cart";
+import { useRouter } from "next/router";
 export { getServerSideProps } from "@/store/index";
 
 export const Navbar = () => {
-  const { pokemon, filter, setFilter } = usePokemon();
+  const { filter, setFilter, setPage } = usePokemon();
   const { cart, toogleCart } = useCart();
+  const router = useRouter();
+  const { id } = router.query;
 
-  console.log("cart na navbar", cart);
   return (
     <>
       <Cart cart={cart} toogleCart={toogleCart} />
-      <Container>
+      <Container showSearch={id ? false : true}>
         <input
           type="text"
           className="searchbar"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e) => {
+            setPage(1);
+            setFilter(e.target.value);
+          }}
           placeholder="Pesquise pelo nome da Carta"
         />
         <div className="cart">
