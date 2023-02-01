@@ -17,6 +17,16 @@ export const Container = styled.div<CartProps>`
     z-index: 2000;
     background: ${theme.colors.white};
     transition: all 1s;
+
+    @media (max-width: 600px) {
+      width: 100%;
+      left: ${open ? "0" : "-850px"};
+    }
+
+    @media (max-width: 425px) {
+      width: 100%;
+      left: ${open ? "0" : "-450px"};
+    }
   `}
 `;
 
