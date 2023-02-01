@@ -13,7 +13,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.2",
+    "@mui/material": "^5.11.7",
     "@reduxjs/toolkit": "^1.9.2",
     "@swc/core": "^1.2.246",
     "@swc/jest": "^0.2.22",
