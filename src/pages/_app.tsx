@@ -9,14 +9,23 @@ import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "styles/theme";
 import { LoggedContext } from "../store/loggedContext";
+import NPProgress from "nprogress";
 
 function MyApp({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter();
+
+  //avoidind hydratation error
   useEffect(() => {
     router.isReady && setIsLoading(false);
   }, [router.isReady]);
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => NPProgress.start());
+    router.events.on("routeChangeComplete", () => NPProgress.done());
+    router.events.on("routeChangeError", () => NPProgress.done());
+  }, [router]);
 
   const {
     hideSnackbar,

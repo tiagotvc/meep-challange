@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { SectionBackground } from "@/components/SectionBackground";
 import Link from "next/link";
 import { CompletePokemon, usePokemon } from "@/store/index";
@@ -43,7 +44,7 @@ const Catalog = () => {
         total={pagination()}
         page={page}
       />
-      <SectionBackground background={false}>
+      <SectionBackground>
         <Grid>
           {parsedPokemon.slice(first, last).map((item: CompletePokemon) => (
             <Link key={`${item.id}`} href={`/${item.id}`}>

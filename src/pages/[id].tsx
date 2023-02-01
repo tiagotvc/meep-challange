@@ -16,6 +16,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useCart } from "@/store/cart";
 import { LoggedContext } from "@/store/loggedContext";
 import { shadowColor } from "@/styles/functions";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export { getServerSideProps } from "@/store/index";
 
@@ -65,6 +66,14 @@ export default function ProductPage() {
 
   return (
     <Container cartButton={isInCart ? "rarissimo" : "raro"}>
+      <div className="page-title">
+        <AiOutlineArrowLeft
+          fontSize={30}
+          className="icon-back"
+          onClick={() => router.back()}
+        />
+        <span onClick={() => router.back()}>Voltar</span>
+      </div>
       <ContainerContent shadowColor={shadowColor[data[0].rarity]}>
         <ContainerImage
           rarity={data[0].rarity}

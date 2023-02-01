@@ -9,13 +9,14 @@ export { getServerSideProps } from "@/store/index";
 
 export const Navbar = () => {
   const { filter, setFilter, setPage } = usePokemon();
-  const { cart, toogleCart } = useCart();
+  const { cart, toogleCart, cartItens } = useCart();
   const router = useRouter();
   const { id } = router.query;
 
   return (
     <>
       <Cart cart={cart} toogleCart={toogleCart} />
+
       <Container showSearch={id ? false : true}>
         <input
           type="text"
@@ -28,6 +29,9 @@ export const Navbar = () => {
           placeholder="Pesquise pelo nome da Carta"
         />
         <div className="cart">
+          <div className="cart-dot">
+            <span>{cartItens.length}</span>
+          </div>
           <FaShoppingCart
             fontSize={25}
             className="cart-navbar-icon"

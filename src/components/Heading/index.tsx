@@ -4,7 +4,7 @@ export type HeadingProps = {
   children: React.ReactNode;
   titleColor?: string;
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  size?: "small" | "medium" | "big" | "huge";
+  size?: "small" | "medium" | "big";
   uppercase?: boolean;
 };
 
@@ -12,7 +12,7 @@ export const Heading = ({
   children,
   titleColor = "black",
   as = "h1",
-  size = "huge",
+  size = "big",
   uppercase = false,
 }: HeadingProps) => {
   return (

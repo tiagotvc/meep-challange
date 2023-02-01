@@ -17,6 +17,7 @@ export interface CompletePokemon extends Pokemon {
   defense: string;
   rate: string;
   price: number;
+  quantity: number;
 }
 
 export async function getServerSideProps() {
@@ -58,8 +59,6 @@ const PokemonContext = createContext<ReturnType<typeof usePokemonController>>({
   setPage: () => {},
   pokemon: [],
 });
-
-
 
 export const PokemonProvider = ({ pokemon, children }) => (
   <PokemonContext.Provider value={usePokemonController(pokemon)}>

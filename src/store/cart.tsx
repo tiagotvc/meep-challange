@@ -10,6 +10,7 @@ export interface CompletePokemon extends Pokemon {
   defense: string;
   rate: string;
   price: number;
+  quantity: number;
 }
 
 const useCartController = () => {
@@ -24,6 +25,7 @@ const useCartController = () => {
     cartItens,
     addToCart,
     toogleCart,
+    setCartItens,
     cart,
   };
 };
@@ -33,6 +35,7 @@ const CartContext = createContext<ReturnType<typeof useCartController>>({
   toogleCart: () => {},
   cartItens: [],
   cart: false,
+  setCartItens: () => {},
 });
 
 export const CartProvider = ({ children }) => (

@@ -33,11 +33,11 @@ export const ContainerImage = styled.div<ContainerImageProps>`
   `}
 `;
 export const ImageBackground = styled.div`
-  ${({}) => css`
+  ${({ theme }) => css`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    background: ${theme.colors.white};
     border-radius: 50%;
     width: 140px;
     height: 140px;
@@ -45,7 +45,7 @@ export const ImageBackground = styled.div`
   `}
 `;
 export const CardBodyContainer = styled.div`
-  ${({}) => css`
+  ${({ theme }) => css`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,7 +62,7 @@ export const CardBodyContainer = styled.div`
     }
 
     > p {
-      color: gray;
+      color: ${theme.colors.mediumGray};
       font-size: 1.1em;
       line-height: 20px;
       text-align: center;
@@ -70,7 +70,7 @@ export const CardBodyContainer = styled.div`
   `}
 `;
 export const CardFooterContainer = styled.div<ContainerImageProps>`
-  ${({ rarity }) => css`
+  ${({ rarity, theme }) => css`
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -85,7 +85,7 @@ export const CardFooterContainer = styled.div<ContainerImageProps>`
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-right: 1px solid white;
+      border-right: 1px solid ${theme.colors.white};
     }
     .info:last-child {
       border: none;
@@ -100,13 +100,13 @@ export const CardFooterContainer = styled.div<ContainerImageProps>`
   `}
 `;
 export const ContainerButton = styled.div<ContainerImageProps>`
-  ${({ rarity }) => css`
+  ${({ rarity, theme }) => css`
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: ${theme.colors.default};
     border-radius: 18px;
     display: flex;
     justify-content: center;
@@ -118,7 +118,7 @@ export const ContainerButton = styled.div<ContainerImageProps>`
       ${setBgColor[rarity]};
       color: #fff;
       outline: none;
-      border: 2px solid currentColor;
+      border: 2px solid ${theme.colors.border};
       cursor: pointer;
       padding: 12px 20px;
       transform: translateY(60px);
@@ -131,7 +131,7 @@ export const ContainerButton = styled.div<ContainerImageProps>`
 
       > a {
         text-decoration: none;
-        color: white;
+        color: ${theme.colors.white};
       }
     }
 

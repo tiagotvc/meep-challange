@@ -7,7 +7,7 @@ export const Container = styled.div`
     position: fixed;
     justify-content: center;
     margin-top: 67px !important;
-    background: white;
+    background: ${theme.colors.white};
     z-index: 1000;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -75,9 +75,9 @@ export const Container = styled.div`
           width: 90px;
           height: 30px;
           border-radius: 18px;
-          border: 1px solid lightgray;
+          border: 1px solid ${theme.colors.border};
           color: white;
-          background: orangered;
+          background: ${theme.colors.orangered};
 
           &:hover {
             background: CornflowerBlue;

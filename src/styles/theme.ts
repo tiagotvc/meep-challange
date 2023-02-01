@@ -4,6 +4,11 @@ export const theme = {
     secondaryColor: "#dc143c",
     white: "#FFFFFF",
     mediumGray: "#DDDDDD",
+    border: "lightgray",
+    black: "#000000",
+    orangered: "orangered",
+    red: "red",
+    default: "rgba(255, 255, 255, 0.85)",
   },
   font: {
     family: {
@@ -20,9 +25,6 @@ export const theme = {
       huge: "5.6rem",
       xhuge: "6.4rem",
     },
-  },
-  media: {
-    lteMedium: "(max-width: 768px)",
   },
   spacings: {
     xsmall: "0.8rem",

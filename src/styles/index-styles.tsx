@@ -1,6 +1,6 @@
 import { Title } from "@/components/Heading/styles";
 import styled, { css } from "styled-components";
-import { seFontColor, setBackgroundImage, setBgColor } from "./functions";
+import { setBackgroundImage, setBgColor } from "./functions";
 
 interface Props {
   cartButton?: string;
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const Container = styled.div<Props>`
-  ${({ cartButton }) => css`
+  ${({ cartButton, theme }) => css`
     display: flex;
     flex-direction: row;
     position: relative;
@@ -19,6 +19,24 @@ export const Container = styled.div<Props>`
     justify-content: center;
     margin: 0 !important;
     padding: 0;
+
+    .page-title {
+      display: flex;
+      position: absolute;
+      top: 10rem !important;
+      margin-right: 65rem !important;
+
+      > span {
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .icon-back {
+        margin-right: 5px !important;
+        margin-top: 2px !important;
+        cursor: pointer;
+      }
+    }
 
     .add-cart {
       display: flex;
@@ -32,20 +50,15 @@ export const Container = styled.div<Props>`
         justify-content: center;
         ${setBgColor[cartButton]};
         color: #fff;
-        outline: none;
-        border: 2px solid currentColor;
         cursor: pointer;
         padding: 12px 20px;
         border-radius: 50%;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.8em;
-        font-weight: bolder;
+        border: none;
         width: 70px;
         height: 70px;
 
         &:hover {
-          border: 1px solid lightgray;
+          border: 1px solid ${theme.colors.orangered};
         }
       }
     }
